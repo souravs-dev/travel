@@ -1,38 +1,343 @@
-.App {
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s ease-out;
+}
+
+/* App.css */
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 100px 0;
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  color: #298cf5;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+
+/* App.css */
+/* Light Theme */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #f8f9fa;
+  --card-text: #000000;
+  --navbar-bg: #f8f9fa;
+  --navbar-text: #000000;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-bg: #2a2a2a;
+  --card-text: #ffffff;
+  --navbar-bg: #1a1a1a;
+  --navbar-text: #ffffff;
+}
+
+/* Apply theme to the entire app */
+body {
+  font-family: 'Arial', sans-serif;
+  padding-top: 70px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--navbar-bg) !important;
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--navbar-text) !important;
+}
+
+.nav-link:hover {
+  color: #e7933f !important; /* Change color on hover */
+}
+
+.nav-link svg {
+  margin-right: 0.6rem; /* Space between icon and text */
+}
+
+/* Responsive Navbar */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background: var(--navbar-bg);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section Styles */
+#about {
+  padding: 100px 0;
+}
+
+#about h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#about h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+#about img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section Styles */
+#contact {
+  padding: 100px 0;
+}
+
+#contact h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+#contact form {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact .form-control {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--card-bg);
+}
+
+#contact .form-control:focus {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-color: #007BFF;
+  box-shadow: none;
+}
+
+#contact .btn-primary {
+  background-color: #007BFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+#contact .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#contact .embed-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Alert Styles */
+.alert {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Services Section Styles */
+#services {
+  padding: 100px 0;
+}
+
+#services h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#services .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#services .icon {
+  color: #007BFF;
+}
+
+/* Packages Section Styles */
+#packages {
+  padding: 100px 0;
+}
+
+#packages h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#packages h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+#packages .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#packages .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#packages .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Home Section Styles */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.hero-section .btn-primary {
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-section .btn-primary:hover {
+  opacity: 0.9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section {
+  padding: 100px 0; /* Add vertical padding to all sections */
 }
