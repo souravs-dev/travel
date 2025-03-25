@@ -81,6 +81,7 @@ import hotelImage from '../assets/images/hotel.jpg';
 import beachImage from '../assets/images/beach.jpg';
 import eiffelImage from '../assets/images/eiffel.jpg';
 import tokyoImage from '../assets/images/tokyo.jpg';
+import packagesVideo from '../assets/videos/packagesVideo.mp4';
 
 const Packages = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -122,13 +123,37 @@ const Packages = () => {
   return (
     <motion.section
       id="packages"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-      transition={{ duration: 1 }}
-      className="container mt-5 py-5"
+      style={{
+        position: 'relative',
+      }}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1
+        }}
+      >
+        <source src={packagesVideo} type="video/mp4" />
+      </video>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+        transition={{ duration: 1 }}
+        className="container mt-5 py-5"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
       <h1 className="text-center mb-5">Our Packages</h1>
       {packages.map((pkg, index) => (
         <div key={index} className="mb-5">
@@ -158,6 +183,7 @@ const Packages = () => {
           </div>
         </div>
       ))}
+      </motion.div>
     </motion.section>
   );
 };

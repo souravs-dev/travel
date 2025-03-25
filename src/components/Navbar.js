@@ -76,14 +76,14 @@ const Navbar = () => {
                Contact
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <button
                 className="btn btn-link nav-link"
                 onClick={toggleTheme}
               >
                 {isDarkMode ? <FaSun /> : <FaMoon />}
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

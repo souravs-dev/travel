@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../context/ThemeContext';
 import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach, FaShieldAlt, FaPassport, FaIdCard } from 'react-icons/fa';
+import servicesVideo from '../assets/videos/servicesVideo.mp4';
 
 const Services = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -34,12 +35,37 @@ const Services = () => {
   return (
     <motion.section
       id="services"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-      className="container mt-5 py-5"
+      style={{
+        position: 'relative',
+      }}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1
+        }}
+      >
+        <source src={servicesVideo} type="video/mp4" />
+      </video>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+        transition={{ duration: 1 }}
+        className="container mt-5 py-5"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
       <h1 className="text-center mb-5">Our Services</h1>
       <div className="row">
         {services.map((service, index) => (
@@ -62,6 +88,7 @@ const Services = () => {
           </motion.div>
         ))}
       </div>
+      </motion.div>
     </motion.section>
   );
 };

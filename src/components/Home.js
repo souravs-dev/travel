@@ -49,36 +49,59 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../context/ThemeContext';
+import homeVideo from '../assets/videos/homevideo.mp4';
 import homeImage from '../assets/images/home.jpg'; // Light theme background
 //import homeBgDark from '../assets/images/home-bg-dark.jpg'; // Dark theme background
 import { FaArrowRight } from 'react-icons/fa';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 const Home = () => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
+    <ParallaxProvider y={[-20, 20]}>
     <motion.section
       id="home"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.05 }}
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ duration: 0.5 }}
+      // whileHover={{ scale: 1.05 }}
       className="hero-section"
       style={{
         //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), url(${isDarkMode ? beachImage : beachImage}))`, // Dynamic background
-        backgroundImage: `url(${homeImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
+        // backgroundImage: `url(${homeImage})`,
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center',
+        // height: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#ffc107',
+        color: '#fff',
         textAlign: 'center',
       }}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="video-background"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1, // Place behind content
+        }}
+      >
+        <source src={homeVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
@@ -104,6 +127,7 @@ const Home = () => {
         </motion.button> */}
       </motion.div>
     </motion.section>
+    </ParallaxProvider>
   );
 };
 

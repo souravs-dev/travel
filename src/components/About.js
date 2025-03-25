@@ -1,18 +1,43 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import aboutImage from '../assets/images/about.jpg'; // Import the image
+import aboutVideo from '../assets/videos/aboutVideo.mp4';
 
 const About = () => {
 
   return (
     <motion.section
       id="about"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1 }}
-      className="container mt-5 py-5"
+      style={{
+        position: 'relative',
+      }}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1
+        }}
+      >
+        <source src={aboutVideo} type="video/mp4" />
+      </video>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="container mt-5 py-5"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
       <h1 className="text-center mb-5">About Us</h1>
       <div className="row align-items-center">
         <div className="col-md-6">
@@ -35,6 +60,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      </motion.div>
     </motion.section>
   );
 };

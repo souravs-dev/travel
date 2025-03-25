@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../context/ThemeContext';
 import emailjs from 'emailjs-com';
+import contactVideo from '../assets/videos/contactVideo.mp4';
 
 const Contact = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -52,12 +53,36 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ type: 'spring', stiffness: 100 }}
-      className="container mt-5 py-5"
+      style={{
+        position: 'relative',
+      }}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1
+        }}
+      >
+        <source src={contactVideo} type="video/mp4" />
+      </video>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ type: 'spring', stiffness: 100 }}
+        className="container mt-5 py-5"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
       <h1 className="text-center mb-5">Contact Us</h1>
       <div className="row">
         <div className="col-md-6">
@@ -175,6 +200,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      </motion.div>
     </motion.section>
   );
 };
