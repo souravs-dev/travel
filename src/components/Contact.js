@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ThemeContext } from '../context/ThemeContext';
 import emailjs from 'emailjs-com';
 import contactVideo from '../assets/videos/contactVideo.mp4';
+import logo from '../assets/images/logo1.JPG';
 
 const Contact = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -38,11 +39,13 @@ const Contact = () => {
         (response) => {
           console.log('Email sent successfully!', response);
           setIsSuccess(true);
+          let timeout = setTimeout(() => setIsSuccess(false), 10000);
           setFormData({ name: '', email: '', number: '', message: '' });
         },
         (error) => {
           console.error('Failed to send email:', error);
           setIsError(true);
+          let timeout = setTimeout(() => setIsError(false), 10000);
         }
       )
       .finally(() => {
@@ -85,7 +88,15 @@ const Contact = () => {
       >
       <h1 className="text-center mb-5">Contact Us</h1>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6" >
+        <img
+            src={logo}
+            alt="Company Logo"
+            style={{
+              height: "80px",
+              marginRight: "10px",
+            }}
+          />
           <h2 className="mb-4">Get in Touch</h2>
           <p className="lead">
             Have questions or need assistance? We're here to help! Reach out to us via phone, email, or visit our office.
@@ -102,7 +113,7 @@ const Contact = () => {
             <h4>Contact Information</h4>
             <p>
               <strong>Phone:</strong> +91 78296 50002<br />
-              <strong>Email:</strong> contactus@sagarexoticescapes.in
+              <strong>Email:</strong> sagarexoticescapes@gmail.com
             </p>
           </div>
           <div className="mb-4">
@@ -145,7 +156,7 @@ const Contact = () => {
             <div className="mb-3">
               <label htmlFor="number" className="form-label">Contact number</label>
               <input
-                type="number"
+                type="tel"
                 className="form-control"
                 id="number"
                 name="number"
@@ -153,6 +164,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Enter your contact number"
                 required
+                maxLength={"10"}
               />
             </div>
             <div className="mb-3">

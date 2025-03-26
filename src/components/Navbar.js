@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { FaPlane, FaHotel, FaCar, FaMapMarkedAlt, FaPhone, FaUser, FaSun, FaMoon, FaHome } from 'react-icons/fa';
-import { ThemeContext } from '../context/ThemeContext';
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+import logo from '../assets/images/logo1.JPG';
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
@@ -8,16 +8,31 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
-        <a className="navbar-brand" href="#home" onClick={() => scrollToSection('home')} style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
-          Sagar Exotic Escapes
-        </a>
+        <div className="d-flex align-items-center">
+          <img
+            src={logo}
+            alt="Company Logo"
+            style={{
+              height: "40px",
+              marginRight: "10px",
+            }}
+          />
+          <a
+            className="navbar-brand"
+            href="#home"
+            onClick={() => scrollToSection("home")}
+            style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+          >
+            Sagar Exotic Escapes
+          </a>
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -29,13 +44,16 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <a
                 className="nav-link"
                 href="#home"
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection("home")}
               >
                 Home
               </a>
@@ -44,7 +62,7 @@ const Navbar = () => {
               <a
                 className="nav-link"
                 href="#services"
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection("services")}
               >
                 Services
               </a>
@@ -53,7 +71,7 @@ const Navbar = () => {
               <a
                 className="nav-link"
                 href="#packages"
-                onClick={() => scrollToSection('packages')}
+                onClick={() => scrollToSection("packages")}
               >
                 Packages
               </a>
@@ -62,7 +80,7 @@ const Navbar = () => {
               <a
                 className="nav-link"
                 href="#about"
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection("about")}
               >
                 About
               </a>
@@ -71,9 +89,9 @@ const Navbar = () => {
               <a
                 className="nav-link"
                 href="#contact"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
               >
-               Contact
+                Contact
               </a>
             </li>
             {/* <li className="nav-item">

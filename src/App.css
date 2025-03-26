@@ -89,6 +89,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 40px; /* Add border radius for curvature */
   margin: 10px auto; /* Center the navbar and add margin */
+  max-width: 90%;
 }
 
 .navbar-brand {
@@ -96,6 +97,15 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
+}
+
+/* Logo Image */
+.navbar img {
+  transition: transform 0.3s ease;
+}
+
+.navbar img:hover {
+  transform: scale(1.05);
 }
 
 .nav-link {
@@ -150,7 +160,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #e7933f !important; /* Change color on hover */
+  color: #0d6efd !important; /* Change color on hover */
 }
 
 .nav-link svg {
@@ -379,4 +389,26 @@ section {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+/* Footer Styles */
+footer {
+  padding: 2rem 0;
+  background-color: #1a1a1a !important;
+}
+
+footer img {
+  transition: transform 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.05);
+}
+
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #0d6efd !important;
 }
