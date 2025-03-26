@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { ThemeProvider } from './context/ThemeContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Contact />
         <Footer />
         <ScrollToTop />
+        <SpeedInsights/>
       </div>
     </ThemeProvider>
   );
